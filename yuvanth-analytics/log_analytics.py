@@ -1,4 +1,6 @@
 import re
+from collections import Counter
+
 
 def parse_line(line):
 
@@ -16,9 +18,12 @@ def parse_line(line):
         "ip": None,
         "hour": None,
         "invalid_user": False
-    }
+    } 
 
-    result["hour"] = line.split()[2].split(":")[0]
+    try:
+        result["hour"] = line.split()[2].split(":")[0]
+    except:
+        return result
 
     failed = failed_pattern.search(line)
 
@@ -28,7 +33,6 @@ def parse_line(line):
         result["ip"] = failed.group(3)
         result["invalid_user"] = "invalid user" in line
         return result
-
     success = success_pattern.search(line)
 
     if success:
@@ -39,13 +43,15 @@ def parse_line(line):
 
     return result
 
-
 event_counts = {
     "ssh_failures": 0,
     "root_attack_attempts": 0,
     "successful_logins": 0,
     "invalid_user_attempts": 0
 }
+
+attacking_ips = Counter()
+targeted_usernames = Counter()
 
 with open("/var/log/auth.log", "r", errors="ignore") as logfile:
 
@@ -57,8 +63,12 @@ with open("/var/log/auth.log", "r", errors="ignore") as logfile:
 
             event_counts["ssh_failures"] += 1
 
+            attacking_ips[parsed["ip"]] += 1
+
+            targeted_usernames[parsed["username"]] += 1
+
             if parsed["username"] == "root":
-                event_counts["root_attack_atempts"] += 1
+                event_counts["root_attack_attempts"] += 1
 
             if parsed["invalid_user"]:
                 event_counts["invalid_user_attempts"] += 1
@@ -81,3 +91,15 @@ print("Successful logins:",
 
 print("Invalid user attempts:",
       event_counts["invalid_user_attempts"])
+
+
+print("\n===== TOP 5 ATTACKING IPs =====")
+
+for ip, count in attacking_ips.most_common(5):
+    print(f"{ip}: {count}")
+
+
+print("\n===== TOP 5 TARGETED USERNAMES =====")
+
+for username, count in targeted_usernames.most_common(5):
+    print(f"{username}: {count}")
