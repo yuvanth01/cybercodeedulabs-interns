@@ -1,16 +1,11 @@
 import re
-from collections import Counter
+import json
+from collections import Counter, defaultdict
 
+
+# ---------------- PARSER ---------------- #
 
 def parse_line(line):
-
-    failed_pattern = re.compile(
-        r"Failed password for (invalid user )?(\S+) from (\d+\.\d+\.\d+\.\d+)"
-    )
-
-    success_pattern = re.compile(
-        r"Accepted password for (\S+) from (\d+\.\d+\.\d+\.\d+)"
-    )
 
     result = {
         "event_type": None,
@@ -18,23 +13,32 @@ def parse_line(line):
         "ip": None,
         "hour": None,
         "invalid_user": False
-    } 
+    }
 
-    try:
-        result["hour"] = line.split()[2].split(":")[0]
-    except:
-        return result
+    parts = line.split()
+
+    # extract hour safely
+    if len(parts) > 2 and ":" in parts[2]:
+        result["hour"] = parts[2].split(":")[0]
+
+    # ONLY match real SSH logs
+    failed_pattern = re.compile(
+        r"Failed password for (invalid user )?(\S+) from (\S+)"
+    )
+
+    success_pattern = re.compile(
+        r"Accepted password for (\S+) from (\S+)"
+    )
 
     failed = failed_pattern.search(line)
-
     if failed:
         result["event_type"] = "failed_login"
         result["username"] = failed.group(2)
         result["ip"] = failed.group(3)
         result["invalid_user"] = "invalid user" in line
         return result
-    success = success_pattern.search(line)
 
+    success = success_pattern.search(line)
     if success:
         result["event_type"] = "successful_login"
         result["username"] = success.group(1)
@@ -42,6 +46,9 @@ def parse_line(line):
         return result
 
     return result
+
+
+# ---------------- STORAGE ---------------- #
 
 event_counts = {
     "ssh_failures": 0,
@@ -52,20 +59,35 @@ event_counts = {
 
 attacking_ips = Counter()
 targeted_usernames = Counter()
+hourly_events = defaultdict(int)
 
-with open("/var/log/auth.log", "r", errors="ignore") as logfile:
+total_lines = 0
 
-    for line in logfile:
+
+# ---------------- READ LOG ---------------- #
+
+with open("/var/log/auth.log", "r", errors="ignore") as file:
+
+    for line in file:
+
+        total_lines += 1
 
         parsed = parse_line(line)
 
+        # hour tracking
+        if parsed["hour"]:
+            hourly_events[parsed["hour"]] += 1
+
+        # failed login
         if parsed["event_type"] == "failed_login":
 
             event_counts["ssh_failures"] += 1
 
-            attacking_ips[parsed["ip"]] += 1
+            if parsed["ip"]:
+                attacking_ips[parsed["ip"]] += 1
 
-            targeted_usernames[parsed["username"]] += 1
+            if parsed["username"]:
+                targeted_usernames[parsed["username"]] += 1
 
             if parsed["username"] == "root":
                 event_counts["root_attack_attempts"] += 1
@@ -73,33 +95,53 @@ with open("/var/log/auth.log", "r", errors="ignore") as logfile:
             if parsed["invalid_user"]:
                 event_counts["invalid_user_attempts"] += 1
 
+        # success login
         elif parsed["event_type"] == "successful_login":
 
             event_counts["successful_logins"] += 1
 
 
+# ---------------- REPORT ---------------- #
+
+report = {
+    "total_lines_processed": total_lines,
+    "event_counts": event_counts,
+    "top_5_attacking_ips": dict(attacking_ips.most_common(5)),
+    "top_5_targeted_usernames": dict(targeted_usernames.most_common(5)),
+    "events_by_hour": dict(sorted(hourly_events.items()))
+}
+
+
+# save json
+with open("report.json", "w") as f:
+    json.dump(report, f, indent=4)
+
+
+# ---------------- OUTPUT ---------------- #
+
+print("\n===== AUTH LOG ANALYTICS REPORT =====")
+print(f"\nTotal lines processed: {total_lines}")
+
 print("\n===== EVENT COUNTS =====")
+for k, v in event_counts.items():
+    print(f"{k}: {v}")
 
-print("SSH failures:",
-      event_counts["ssh_failures"])
-
-print("Root attack attempts:",
-      event_counts["root_attack_attempts"])
-
-print("Successful logins:",
-      event_counts["successful_logins"])
-
-print("Invalid user attempts:",
-      event_counts["invalid_user_attempts"])
-
-
-print("\n===== TOP 5 ATTACKING IPs =====")
-
-for ip, count in attacking_ips.most_common(5):
-    print(f"{ip}: {count}")
-
+print("\n===== TOP 5 ATTACKING IPS =====")
+if attacking_ips:
+    for ip, count in attacking_ips.most_common(5):
+        print(f"{ip}: {count}")
+else:
+    print("No attacking IPs found")
 
 print("\n===== TOP 5 TARGETED USERNAMES =====")
+if targeted_usernames:
+    for user, count in targeted_usernames.most_common(5):
+        print(f"{user}: {count}")
+else:
+    print("No targeted usernames found")
 
-for username, count in targeted_usernames.most_common(5):
-    print(f"{username}: {count}")
+print("\n===== EVENTS BY HOUR =====")
+for h in sorted(hourly_events):
+    print(f"{h}:00 = {hourly_events[h]}")
+
+print("\nReport saved as report.json")
