@@ -3,8 +3,6 @@ import json
 from collections import Counter, defaultdict
 
 
-# ---------------- PARSER ---------------- #
-
 def parse_line(line):
 
     result = {
@@ -48,7 +46,6 @@ def parse_line(line):
     return result
 
 
-# ---------------- STORAGE ---------------- #
 
 event_counts = {
     "ssh_failures": 0,
@@ -64,7 +61,6 @@ hourly_events = defaultdict(int)
 total_lines = 0
 
 
-# ---------------- READ LOG ---------------- #
 
 with open("/var/log/auth.log", "r", errors="ignore") as file:
 
@@ -95,13 +91,11 @@ with open("/var/log/auth.log", "r", errors="ignore") as file:
             if parsed["invalid_user"]:
                 event_counts["invalid_user_attempts"] += 1
 
-        # success login
         elif parsed["event_type"] == "successful_login":
 
             event_counts["successful_logins"] += 1
 
 
-# ---------------- REPORT ---------------- #
 
 report = {
     "total_lines_processed": total_lines,
@@ -112,12 +106,10 @@ report = {
 }
 
 
-# save json
 with open("report.json", "w") as f:
     json.dump(report, f, indent=4)
 
 
-# ---------------- OUTPUT ---------------- #
 
 print("\n===== AUTH LOG ANALYTICS REPORT =====")
 print(f"\nTotal lines processed: {total_lines}")
