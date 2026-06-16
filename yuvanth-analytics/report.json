@@ -1,29 +1,37 @@
 {
-    "total_lines_processed": 88,
+    "total_lines_processed": 215,
     "event_counts": {
-        "ssh_failures": 0,
-        "root_attack_attempts": 0,
+        "ssh_failures": 64,
+        "root_attack_attempts": 12,
         "successful_logins": 0,
         "invalid_user_attempts": 0
     },
-    "top_5_attacking_ips": {},
-    "top_5_targeted_usernames": {},
+    "top_5_attacking_ips": {
+        "185.220.101.47": 64
+    },
+    "top_5_targeted_usernames": {
+        "root": 12,
+        "admin": 4,
+        "deploy": 4,
+        "ubuntu": 4,
+        "test": 4
+    },
     "events_by_hour": {
         "00": 4,
         "01": 4,
         "02": 4,
-        "03": 32,
-        "04": 2,
-        "05": 2,
-        "06": 6,
-        "07": 2,
-        "08": 2,
-        "09": 2,
-        "10": 2,
-        "11": 2,
-        "12": 2,
-        "13": 2,
-        "14": 2,
+        "03": 36,
+        "04": 4,
+        "05": 7,
+        "06": 10,
+        "07": 4,
+        "08": 4,
+        "09": 4,
+        "10": 4,
+        "11": 4,
+        "12": 11,
+        "13": 11,
+        "14": 86,
         "15": 2,
         "16": 2,
         "17": 2,
@@ -35,21 +43,35 @@
         "23": 2
     },
     "syslog": {
-        "ufw_blocks": 0,
-        "top_5_blocked_ports": {},
-        "top_5_blocked_ips": {}
+        "ufw_blocks": 64,
+        "top_5_blocked_ports": {
+            "21": 4,
+            "23": 4,
+            "25": 4,
+            "3306": 4,
+            "5432": 4
+        },
+        "top_5_blocked_ips": {
+            "185.220.101.47": 64
+        }
     },
     "nginx": {
-        "total_http_requests": 0,
-        "top_5_requested_paths": {},
-        "404_responses": 0,
-        "scanner_user_agents": 0
+        "total_http_requests": 24,
+        "top_5_requested_paths": {
+            "/admin": 4,
+            "/.env": 4,
+            "/phpmyadmin": 4,
+            "/.git/config": 4,
+            "/wp-login.php": 4
+        },
+        "404_responses": 24,
+        "scanner_user_agents": 24
     },
     "attack_surface": {
         "event_counts": {
-            "auth_log_events": 88,
-            "syslog_events": 0,
-            "nginx_events": 0
+            "auth_log_events": 215,
+            "syslog_events": 64,
+            "nginx_events": 24
         },
         "most_active_source": "auth_log_events"
     }
