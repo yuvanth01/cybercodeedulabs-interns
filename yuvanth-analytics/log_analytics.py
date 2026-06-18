@@ -283,3 +283,38 @@ print("\n========== ATTACK SURFACE ==========")
 print(f"Most Active Source: {most_active_source}")
 
 print("\nReport saved as report.json")
+
+print("\n===== AUTH LOG SUMMARY =====")
+
+print("+---------------------------+-------+")
+print("| Metric                    | Value |")
+print("+---------------------------+-------+")
+
+for key, value in event_counts.items():
+    print(f"| {key:<25} | {value:<5} |")
+
+print("+---------------------------+-------+")
+
+print("\n===== TOP ATTACKING IPS =====")
+
+print("+-------------------+-------+")
+print("| IP Address        | Count |")
+print("+-------------------+-------+")
+
+for ip, count in attacking_ips.most_common(5):
+    print(f"| {ip:<17} | {count:<5} |")
+
+print("+-------------------+-------+")
+
+print("\n===== NGINX ANALYTICS =====")
+
+print("+---------------------------+-------+")
+print("| Metric                    | Value |")
+print("+---------------------------+-------+")
+
+print(f"| Total HTTP Requests       | {total_http_requests:<5} |")
+print(f"| 404 Responses             | {count_404:<5} |")
+print(f"| Scanner User Agents       | {scanner_requests:<5} |")
+
+print("+---------------------------+-------+")
+
