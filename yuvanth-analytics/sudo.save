@@ -1,0 +1,64 @@
+# TABLE: security_events
+
+| Column Name      | Data Type    | Example Value               | Why this column is needed        |
+| ---------------- | ------------ | --------------------------- | -------------------------------- |
+| event_id         | INTEGER      | 1001                        | Unique identifier for each event |
+| timestamp        | DATETIME     | 2026-06-18 19:27:30         | Stores when the event occurred   |
+| event_type       | VARCHAR(50)  | heartbeat                   | Type of security event           |
+| severity         | VARCHAR(20)  | LOW                         | Indicates severity level         |
+| source_ip        | VARCHAR(45)  | 10.103.1.204                | Source IP generating event       |
+| attacker_ip      | VARCHAR(45)  | 185.220.101.47              | Suspicious or attacker IP        |
+| hostname         | VARCHAR(100) | c3-gyuvanth-885464          | Host/agent generating logs       |
+| attack_type      | VARCHAR(50)  | Port Scan                   | Category of attack               |
+| protocol         | VARCHAR(20)  | TCP                         | Network protocol used            |
+| destination_port | INTEGER      | 22                          | Targeted network port            |
+| action_taken     | VARCHAR(50)  | Blocked                     | Security action performed        |
+| status           | VARCHAR(20)  | Active                      | Current event status             |
+| location         | VARCHAR(100) | Fremont, United States      | Geo-location of source IP        |
+| monitored_agent  | VARCHAR(100) | HYD SERVER                  | System being monitored           |
+| log_source       | VARCHAR(50)  | SIEM                        | Source of security log           |
+| event_message    | TEXT         | C3 Agent heartbeat detected | Detailed event description       |
+
+
+
+# FILTERS AVAILABLE
+
+
+
+| Filter Name               | Used For                                 |
+
+| ------------------------- | ---------------------------------------- |
+
+| Severity Filter           | LOW / MEDIUM / HIGH alerts               |
+
+| Event Type Filter         | heartbeat, brute force, firewall block   |
+
+| IP Search Filter          | Search attacker or source IP             |
+
+| Time Range Filter         | Last 24 hours / real-time logs           |
+
+| Attack Type Filter        | Port scan, HTTP probe, brute force       |
+
+| Device Filter             | Firewall, server, database events        |
+
+| Status Filter             | Active, blocked, resolved events         |
+
+| Hostname Filter           | Logs from specific monitored agents      |
+
+| SOC Filter                | View SOC-related monitoring events       |
+
+| SIEM Filter               | Filter SIEM-generated logs               |
+
+| Firewall Filter           | Show firewall alerts and blocked traffic |
+
+| Phishing Filter           | Display phishing-related incidents  for practice     | 
+
+| Forensics Filter          | Filter forensic investigation logs       |
+
+| Vulnerability Scan Filter | Show vulnerability scan results          |
+
+| Incident Filter           | This tab tracks which stage the current attack has reached based on the events detected. | 
+
+| Packet Replay Filter      | This tab shows every attack event as a packet |
+
+| Learn Filter              | learn About attack type , kill chain , MITRE ATT&CK  | 

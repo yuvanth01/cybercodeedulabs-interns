@@ -1,0 +1,50 @@
+import sqlite3
+
+# Create database
+conn = sqlite3.connect("security_monitor.db")
+cursor = conn.cursor()
+
+# -------------------------------------------------
+# TABLE: events_per_hour_summary
+# -------------------------------------------------
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS events_per_hour_summary (
+    summary_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    hour_timestamp DATETIME,
+    attack_type TEXT,
+    total_events INTEGER,
+    severity TEXT,
+    blocked_count INTEGER,
+    source_count INTEGER,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+""")
+
+# -------------------------------------------------
+# TABLE: source_ip_stats
+# -------------------------------------------------
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS source_ip_stats (
+    ip_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    source_ip TEXT,
+    total_attempts INTEGER,
+    first_seen DATETIME,
+    last_seen DATETIME,
+    attack_type TEXT,
+    severity TEXT,
+    country TEXT,
+    status TEXT,
+    blocked_count INTEGER,
+    hostname_targeted TEXT
+)
+""")
+
+# Save changes
+conn.commit()
+
+print("Tables created successfully!")
+
+# Close database
+conn.close()
