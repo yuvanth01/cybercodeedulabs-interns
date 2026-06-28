@@ -1,0 +1,462 @@
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:01] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : deploy | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:01] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : ubuntu | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:02] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : test | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:03] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : git | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:14] ROOT_ATTACK | HIGH | IP : 185.220.101.47 | User : root | Tactic : Privilege Escalation | Technique ID : T1068 | Kill Chain : Exploitation
+
+MITRE ENRICHED EVENT
+Tactic          : Privilege Escalation
+Technique ID    : T1078
+Technique Name  : Valid Accounts
+Kill Chain      : Exploitation
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:15] ROOT_ATTACK | HIGH | IP : 185.220.101.47 | User : root | Tactic : Privilege Escalation | Technique ID : T1068 | Kill Chain : Exploitation
+
+MITRE ENRICHED EVENT
+Tactic          : Privilege Escalation
+Technique ID    : T1078
+Technique Name  : Valid Accounts
+Kill Chain      : Exploitation
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:16] ROOT_ATTACK | HIGH | IP : 185.220.101.47 | User : root | Tactic : Privilege Escalation | Technique ID : T1068 | Kill Chain : Exploitation
+
+MITRE ENRICHED EVENT
+Tactic          : Privilege Escalation
+Technique ID    : T1078
+Technique Name  : Valid Accounts
+Kill Chain      : Exploitation
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:27] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : bruteuser1 | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:27] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:27] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : bruteuser2 | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:27] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:27] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : bruteuser3 | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:27] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:27] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : bruteuser4 | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:27] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:28] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : bruteuser5 | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:28] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:28] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : bruteuser6 | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:28] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:28] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : bruteuser7 | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:28] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:29] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : bruteuser8 | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:29] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:39] UFW_BLOCK | MEDIUM | SRC_IP : 185.220.101.47 | DPT : 21 | Tactic : Discovery | Technique ID : T1046 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Defense Evasion
+Technique ID    : T1562
+Technique Name  : Impair Defenses
+Kill Chain      : Weaponization
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:39] UFW_BLOCK | MEDIUM | SRC_IP : 185.220.101.47 | DPT : 23 | Tactic : Discovery | Technique ID : T1046 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Defense Evasion
+Technique ID    : T1562
+Technique Name  : Impair Defenses
+Kill Chain      : Weaponization
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:40] UFW_BLOCK | MEDIUM | SRC_IP : 185.220.101.47 | DPT : 25 | Tactic : Discovery | Technique ID : T1046 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Defense Evasion
+Technique ID    : T1562
+Technique Name  : Impair Defenses
+Kill Chain      : Weaponization
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:40] PORT_SCAN | MEDIUM | IP : 185.220.101.47 | Tactic : Reconnaissance | Technique ID : T1046 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Reconnaissance
+Technique ID    : T1046
+Technique Name  : Network Service Scanning
+Kill Chain      : Reconnaissance
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:40] UFW_BLOCK | CRITICAL | SRC_IP : 185.220.101.47 | DPT : 3306 | Tactic : Discovery | Technique ID : T1046 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Defense Evasion
+Technique ID    : T1562
+Technique Name  : Impair Defenses
+Kill Chain      : Weaponization
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:41] UFW_BLOCK | CRITICAL | SRC_IP : 185.220.101.47 | DPT : 5432 | Tactic : Discovery | Technique ID : T1046 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Defense Evasion
+Technique ID    : T1562
+Technique Name  : Impair Defenses
+Kill Chain      : Weaponization
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:53] FIREWALL_BLOCK | LOW | IP : 185.220.101.47 | DPT : 135 | Tactic : Defense Evasion | Technique ID : T1562 | Kill Chain : Exploitation
+
+MITRE ENRICHED EVENT
+Tactic          : Defense Evasion
+Technique ID    : T1562.004
+Technique Name  : Disable or Modify Firewall
+Kill Chain      : Defense Evasion
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:54] FIREWALL_BLOCK | LOW | IP : 185.220.101.47 | DPT : 445 | Tactic : Defense Evasion | Technique ID : T1562 | Kill Chain : Exploitation
+
+MITRE ENRICHED EVENT
+Tactic          : Defense Evasion
+Technique ID    : T1562.004
+Technique Name  : Disable or Modify Firewall
+Kill Chain      : Defense Evasion
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:09:55] FIREWALL_BLOCK | LOW | IP : 185.220.101.47 | DPT : 3389 | Tactic : Defense Evasion | Technique ID : T1562 | Kill Chain : Exploitation
+
+MITRE ENRICHED EVENT
+Tactic          : Defense Evasion
+Technique ID    : T1562.004
+Technique Name  : Disable or Modify Firewall
+Kill Chain      : Defense Evasion
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:06] HTTP_PROBE | MEDIUM | IP : 185.220.101.47 | Tactic : Reconnaissance | Technique ID : T1595 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Reconnaissance
+Technique ID    : T1595
+Technique Name  : Active Scanning
+Kill Chain      : Reconnaissance
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:07] HTTP_PROBE | MEDIUM | IP : 185.220.101.47 | Tactic : Reconnaissance | Technique ID : T1595 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Reconnaissance
+Technique ID    : T1595
+Technique Name  : Active Scanning
+Kill Chain      : Reconnaissance
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:08] HTTP_PROBE | MEDIUM | IP : 185.220.101.47 | Tactic : Reconnaissance | Technique ID : T1595 | Kill Chain : Reconnaissance
+
+MITRE ENRICHED EVENT
+Tactic          : Reconnaissance
+Technique ID    : T1595
+Technique Name  : Active Scanning
+Kill Chain      : Reconnaissance
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:55] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : admin | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:55] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : deploy | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:56] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : ubuntu | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:57] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : test | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:57] SSH_FAILURE | MEDIUM | IP : 185.220.101.47 | User : git | Tactic : Credential Access | Technique ID : T1110 | Kill Chain : Delivery
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110
+Technique Name  : Brute Force
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:10:57] BRUTE_FORCE | HIGH | IP : 185.220.101.47 | 5 failures in 60 seconds | Tactic : Credential Access | Technique ID : T1110.001 | Kill Chain : Credential Access
+
+MITRE ENRICHED EVENT
+Tactic          : Credential Access
+Technique ID    : T1110.001
+Technique Name  : Password Guessing
+Kill Chain      : Credential Access
+========================================
+
+========================================
+ORIGINAL EVENT
+[2026-06-25 14:11:08] ROOT_ATTACK | HIGH | IP : 185.220.101.47 | User : root | Tactic : Privilege Escalation | Technique ID : T1068 | Kill Chain : Exploitation
+
+MITRE ENRICHED EVENT
+Tactic          : Privilege Escalation
+Technique ID    : T1078
+Technique Name  : Valid Accounts
+Kill Chain      : Exploitation
+========================================
