@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Digital Fort Analytics Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:20px;
+            background:#f4f4f4;
+            font-family:Arial,sans-serif;
+        }
+
+        h1{
+            text-align:center;
+            color:#1e3a8a;
+        }
+
+        .container{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+            margin-top:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,.2);
+        }
+
+        .full{
+            grid-column:1/3;
+        }
+
+        canvas{
+            width:100% !important;
+            height:400px !important;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Digital Fort Analytics Dashboard</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Event Counts by Type</h2>
+        <canvas id="eventChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>Top 5 Attacking IPs</h2>
+        <canvas id="ipChart"></canvas>
+    </div>
+
+    <div class="card full">
+        <h2>Events Over Time (24 Hours)</h2>
+        <canvas id="timelineChart"></canvas>
+    </div>
+
+    <div class="card full">
+        <h2>Events by Log Source</h2>
+        <canvas id="sourceChart"></canvas>
+    </div>
+
+</div>
+
+<script>
+
+let eventChart;
+let ipChart;
+let timelineChart;
+let sourceChart;
+
+async function loadDashboard(){
+
+    const report = await fetch("/report");
+    const reportData = await report.json();
+
+    const attackers = await fetch("/top-attackers");
+    const attackerData = await attackers.json();
+
+    const timeline = await fetch("/timeline?hours=24");
+    const timelineData = await timeline.json();
+
+    drawEventChart(reportData);
+    drawIPChart(attackerData);
+    drawTimelineChart(timelineData);
+    drawSourceChart(reportData);
+
+}
+
+function drawEventChart(data){
+
+    const labels=[
+        "SSH Failures",
+        "Root Attacks",
+        "Successful Logins",
+        "Invalid Users"
+    ];
+
+    const values=[
+        data.event_counts.ssh_failures,
+        data.event_counts.root_attack_attempts,
+        data.event_counts.successful_logins,
+        data.event_counts.invalid_user_attempts
+    ];
+
+    if(eventChart) eventChart.destroy();
+
+    eventChart=new Chart(document.getElementById("eventChart"),{
+
+        type:"bar",
+
+        data:{
+            labels:labels,
+            datasets:[{
+                label:"Events",
+                data:values
+            }]
+        }
+
+    });
+
+}
+
+function drawIPChart(data){
+
+    const labels=data.map(item=>item.ip);
+    const values=data.map(item=>item.total_attacks);
+
+    if(ipChart) ipChart.destroy();
+
+    ipChart=new Chart(document.getElementById("ipChart"),{
+
+        type:"bar",
+
+        data:{
+            labels:labels,
+            datasets:[{
+                label:"Attacks",
+                data:values
+            }]
+        }
+
+    });
+
+}
+
+function drawTimelineChart(data){
+
+    const labels=data.map(item=>item.hour);
+    const values=data.map(item=>item.count);
+
+    if(timelineChart) timelineChart.destroy();
+
+    timelineChart=new Chart(document.getElementById("timelineChart"),{
+
+        type:"line",
+
+        data:{
+            labels:labels,
+            datasets:[{
+                label:"Events",
+                data:values,
+                fill:false
+            }]
+        }
+
+    });
+
+}
+
+function drawSourceChart(data){
+
+    const labels=[
+        "auth.log",
+        "syslog",
+        "nginx"
+    ];
+
+    const values=[
+        data.attack_surface.event_counts.auth_log_events,
+        data.attack_surface.event_counts.syslog_events,
+        data.attack_surface.event_counts.nginx_events
+    ];
+
+    if(sourceChart) sourceChart.destroy();
+
+    sourceChart=new Chart(document.getElementById("sourceChart"),{
+
+        type:"pie",
+
+        data:{
+            labels:labels,
+            datasets:[{
+                data:values
+            }]
+        }
+
+    });
+
+}
+
+loadDashboard();
+
+setInterval(loadDashboard,60000);
+
+</script>
+
+</body>
+</html>

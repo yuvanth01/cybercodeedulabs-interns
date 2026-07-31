@@ -1,10 +1,14 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 import subprocess
 import json
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/")
+def dashboard():
+    return render_template("analytics.html")
 
 
 def get_report():
@@ -57,25 +61,33 @@ def web_report():
 @app.route("/top-attackers")
 def top_attackers():
 
-    data = get_report()
-    return jsonify(data["top_5_attacking_ips"])
+    report = get_report()
+
+    attackers = []
+
+    for ip, count in report["top_5_attacking_ips"].items():
+        attackers.append({
+            "ip": ip,
+            "total_attacks": count
+        })
+
+    return jsonify(attackers)
 
 
 @app.route("/timeline")
 def timeline():
 
-    data = get_report()
+    report = get_report()
 
-    hours = request.args.get("hours")
+    events = []
 
-    if hours:
-        hours = int(hours)
+    for hour, count in report["events_by_hour"].items():
+        events.append({
+            "hour": hour,
+            "count": count
+        })
 
-        events = list(data["events_by_hour"].items())[-hours:]
-
-        return jsonify(dict(events))
-
-    return jsonify(data["events_by_hour"])
+    return jsonify(events)
 
 
 if __name__ == "__main__":
