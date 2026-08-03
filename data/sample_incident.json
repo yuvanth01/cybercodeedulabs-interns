@@ -1,0 +1,16 @@
+{
+    "incident_id": "INC-2026-001",
+    "title": "SSH Brute Force Attack",
+    "severity": "High",
+    "timestamp": "2026-07-14T10:30:00",
+    "source_ip": "192.168.1.100",
+    "destination_ip": "10.0.0.5",
+    "affected_host": "Ubuntu Server",
+    "attack_type": "SSH Brute Force",
+    "status": "Resolved",
+    "evidence": [
+        "150 failed SSH login attempts",
+        "Multiple root login attempts",
+        "Firewall blocked attacker IP"
+    ]
+}
